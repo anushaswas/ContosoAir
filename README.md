@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/umakondameedi/contosoAir/_apis/build/status%2Fanushaswas.ContosoAir?branchName=master)](https://dev.azure.com/umakondameedi/contosoAir/_build/latest?definitionId=1&branchName=master)
+
 # This project is retired, archived, and no longer supported. You are welcome to continue to use and fork the repository.
 
 
