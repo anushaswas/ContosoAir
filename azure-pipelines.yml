@@ -1,5 +1,5 @@
 pool:
- name: 'testagent'
+ name: 'azureagent'
 trigger:
   - master
 steps:
@@ -16,7 +16,13 @@ steps:
     displayName: 'Publish Test Results'
     condition: succeededOrFailed()
     inputs:
-      testResultsFiles: $(System.DefaultWorkingDirectory)/test-report.xml
+      testResultsFormat: 'JUnit'
+      testResultsFiles: '$(System.DefaultWorkingDirectory)/test-report.xml'
+      mergeTestResults: true
+      failTaskOnFailedTests: true
+      failTaskOnFailureToPublishResults: true
+      failTaskOnMissingResultsFile: true
+      testRunTitle: 'tests'
   - task: PublishCodeCoverageResults@1
     displayName: 'Publish Code Coverage'
     condition: 'in(variables[''Agent.JobStatus''], ''Succeeded'')'
