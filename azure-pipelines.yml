@@ -16,13 +16,7 @@ steps:
     displayName: 'Publish Test Results'
     condition: succeededOrFailed()
     inputs:
-      testResultsFormat: 'JUnit'
-      testResultsFiles: '$(System.DefaultWorkingDirectory)/test-report.xml'
-      mergeTestResults: true
-      failTaskOnFailedTests: true
-      failTaskOnFailureToPublishResults: true
-      failTaskOnMissingResultsFile: true
-      testRunTitle: 'tests'
+      testResultsFiles: $(System.DefaultWorkingDirectory)/test-report.xml
   - task: PublishCodeCoverageResults@1
     displayName: 'Publish Code Coverage'
     condition: 'in(variables[''Agent.JobStatus''], ''Succeeded'')'
